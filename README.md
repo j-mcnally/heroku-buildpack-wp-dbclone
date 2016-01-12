@@ -1,2 +1,2 @@
-Heroku Buildpack for wp-cli
+Heroku Buildpack for copying scripts to clone a staging db.
 ====================================
