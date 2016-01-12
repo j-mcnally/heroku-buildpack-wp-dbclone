@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -e            # fail fast
+set -o pipefail   # don't ignore exit codes when piping output
+# set -x          # enable debugging
+
+# Configure directories
+build_dir=$1
+cache_dir=$2
+env_dir=$3
+
+APP_URL=`php -r "print json_decode('$RECEIVE_DATA', 1)[\"push_metadata\"][\"app_info\"][\"web_url\"];"`
+echo "----> APP URL DETECTED AS: $APP_URL"
+echo $APP_URL > $1/appurl.txt
+
+
+cp ../deps/db.sh $1/wp_clone.sh
